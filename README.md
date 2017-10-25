@@ -8,4 +8,5 @@ Application pwa
 -Retirer les speakers des contacts du téléphone<br />
 -Utilisation de sqlitePlugin pour stocker les photos<br />
 -Utilisation de localforage pour les données speakers et conférences<br />
+-Boutton pour mettre à jour les données speakers et sessions<br />
 etc...<br />
