@@ -21,6 +21,9 @@
     },
     "cordova-plugin-contacts": {
       "PACKAGE_NAME": "fr.conference"
+    },
+    "cordova-plugin-calendar": {
+      "PACKAGE_NAME": "fr.conference"
     }
   },
   "dependent_plugins": {}

@@ -124,6 +124,14 @@ module.exports = [
     "merges": [
       ""
     ]
+  },
+  {
+    "id": "cordova-plugin-calendar.Calendar",
+    "file": "plugins/cordova-plugin-calendar/www/Calendar.js",
+    "pluginId": "cordova-plugin-calendar",
+    "clobbers": [
+      "Calendar"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -133,7 +141,8 @@ module.exports.metadata =
   "cordova-plugin-device": "1.1.6",
   "cordova-plugin-camera": "2.4.1",
   "cordova-sqlite-storage": "2.0.4",
-  "cordova-plugin-contacts": "2.3.1"
+  "cordova-plugin-contacts": "2.3.1",
+  "cordova-plugin-calendar": "4.6.0"
 };
 // BOTTOM OF METADATA
 });

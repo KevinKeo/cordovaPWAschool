@@ -75,3 +75,9 @@ function getSessionById(id){
     var store = localforage.createInstance({storeName: "sessions"});
     return store.getItem(id);
 }
+
+function updateDataSession(){
+    updateData().then(function(){
+        getAllTitle();
+    })
+}

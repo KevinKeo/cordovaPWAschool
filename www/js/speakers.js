@@ -143,3 +143,8 @@ function onError(contactError) {
     alert("Error = " + contactError.code);
 }
 
+function updateDataSpeakers(){
+    updateData().then(function(){
+        getAllSpeakers();
+    })
+}

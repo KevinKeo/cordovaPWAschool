@@ -35,9 +35,6 @@ function checkUpdateData(){
             localStorage.setItem("lastUpdate",t);
             return updateData();
         }
-        else {
-            console.log("no update for now");
-        }
     } else {
         localStorage.setItem("lastUpdate",t);
         return updateData();

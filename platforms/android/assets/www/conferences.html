@@ -6,12 +6,18 @@
     <body>
         <div class="container">
             <div id="navbar"></div>
+            <div class="col-offset-2 col-md-offset-1 col-4 col-md-2 text-center">
+                <button class="btn btn-default btn-block" onclick="updateDataSession();">
+                    Update Liste
+                </button>
+            </div>
             <div id="container" class="row">
                 <ul id="liste"></ul>
             </div>
         </div>
 
 
+        <script type="text/javascript" src="cordova.js"></script>
         <script src="js/localforage.js"></script>
         <script src="app.js"></script>
         <script src="js/sessions.js"></script>
