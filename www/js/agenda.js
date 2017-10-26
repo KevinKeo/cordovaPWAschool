@@ -11,6 +11,7 @@ function getAllSchedule(){
             var thead = document.createElement("thead");
             var tr = document.createElement("tr");
             var th = document.createElement("th");
+            th.setAttribute("colspan","4");
             th.innerHTML = day.dateReadable ;
             tr.appendChild(th);
             thead.appendChild(tr);
@@ -31,6 +32,8 @@ function getAllSchedule(){
                     var td = document.createElement("td");
                     td.setAttribute("id",session[0]);
                     td.setAttribute("class","session");
+                    var colspan = Math.floor(4/timeslot.sessions.length);
+                    td.setAttribute("colspan",colspan.toString());
                     ligne.appendChild(td);
                 }
                 tbody.appendChild(ligne);
