@@ -53,13 +53,25 @@ function getAllSchedule(){
 function getSessions(){
     checkUpdateData().then(function(){
         var store = localforage.createInstance({storeName: "sessions"});
+        var favoriteStore = localforage.createInstance({storeName: "favorite"});        
         var containers = document.getElementsByClassName("session");
         for(var i = 0; i < containers.length ; i++){
             var idSession = containers.item(i).getAttribute("id");
             store.getItem(idSession)
             .then(function(session){
                 var td = document.getElementById(session.id);
-                td.innerHTML = "<a href=conference.html?sessionid="+session.id+">" + session.title + '</a>';
+                var a = document.createElement("a");
+                a.setAttribute("href","conference.html?sessionid="+session.id);
+    
+                favoriteStore.getItem(session.id.toString()).then(function(fav) {
+                    if(fav != null){
+                        a.innerHTML= "<b>" + session.title + "</b>";
+                    }else{
+                        a.innerHTML=session.title;                    
+                    }
+                });
+                //td.innerHTML = "<a href=conference.html?sessionid="+session.id+">" + session.title + '</a>';
+                td.appendChild(a);
             })
         }
     }).then(function() {
