@@ -1,5 +1,7 @@
 const dbsessions = "sessions";
 const dbsepakers = "speakers";
+const dbschedules = "schedules";
+const dbfavorite = "favorite";
 const oneDay = 86400000;
 const dayMaj = 2;
 
@@ -64,6 +66,19 @@ function updateData(){
                     store2.setItem(key, sessions[key]);
                 }
                 console.log("*****************MISE A JOUR DATA SESSIONS*********************");
-            })
+            }),
+    fetch('https://raw.githubusercontent.com/DevInstitut/conference-data/master/schedule.json')
+        .then(resp => resp.json())
+            .then(schedules => {
+                var store3 = localforage.createInstance({storeName: dbschedules});
+                for (var key in schedules) {
+                    store3.setItem(key,schedules[key]);
+                }
+                console.log("*****************MISE A JOUR DATA SCHEDULES*********************");
+            }),
+        function() {
+            var store4 = localforage.createInstance({storeName: dbfavorite});
+            console.log("*****************MISE A JOUR DATA FAVORITES*********************");            
+        }
     ]);
 }

@@ -3,12 +3,19 @@ const sessionIdParam = "sessionid";
 function getAllTitle(){
     checkUpdateData().then(function(){
         var store = localforage.createInstance({storeName: "sessions"});
+        var favoriteStore = localforage.createInstance({storeName: "favorite"});
         var ul = document.getElementById('liste');
         return store.iterate(function(value, key, iterationNumber) {
             var li = document.createElement("li");
             var a = document.createElement("a");
             a.setAttribute("href","conference.html?"+sessionIdParam+"="+value.id);
-            a.innerHTML=value.title;
+            favoriteStore.getItem(value.id.toString()).then(function(fav) {
+                if(fav != null){
+                    a.innerHTML= "<b>" + value.title + "</b>";
+                }else{
+                    a.innerHTML=value.title;                    
+                }
+            });
             li.appendChild(a);
             ul.appendChild(li);
         }).then(function() {
@@ -79,5 +86,14 @@ function getSessionById(id){
 function updateDataSession(){
     updateData().then(function(){
         getAllTitle();
+    })
+}
+
+function addFavorite(){
+    checkUpdateData().then(function(){
+        var searchParams = new URLSearchParams(window.location.search);
+        var id = searchParams.get("sessionid");
+        var store = localforage.createInstance({storeName: "favorite"});
+        store.setItem(id,id);
     })
 }

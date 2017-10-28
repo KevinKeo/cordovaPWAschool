@@ -6,26 +6,18 @@
     <body>
         <div class="container">
             <div id="navbar"></div>
-            <div class="col-offset-2 col-md-offset-1 col-4 col-md-2 text-center">
-                <button class="btn btn-default btn-block" onclick="updateDataSpeakers();">
-                    Update Speakers
-                </button>
-            </div>           
-            <div id="container" class="row">
-                <ul id="liste"></ul>
-            </div>
         </div>
 
+        <div id="schedule"></div>
 
-
-        <script type="text/javascript" src="cordova.js"></script>
         <script src="js/localforage.js"></script>
         <script src="app.js"></script>
-        <script src="js/speakers.js"></script>
-        <script>getAllSpeakers();</script>
+        <script src="js/agenda.js"></script>        
+        <script>getAllSchedule();</script>        
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        
         <script> 
            $(function(){
               $('#navbar').load("nav.html");
